@@ -1,19 +1,10 @@
-import { GetStaticProps } from 'next';
 import Prismic from '@prismicio/client';
-import { useEffect } from 'react';
-import Aos from 'aos';
+import { GetStaticProps } from 'next';
 import Head from 'next/head';
-import { HomeContainer } from '../styles/HomeStyles';
-
-import Header from '../components/Header';
-import HomeHero from '../components/HomeHero';
-import Experiencias from '../components/Experiencias';
-import Projetos from '../components/Projetos';
-import Conhecimentos from '../components/Conhecimentos';
-import FormContato from '../components/FormContato';
-import Footer from '../components/Footer';
-import { getPrismicClient } from '../services/prismic';
-import 'aos/dist/aos.css';
+import Header from '../../components/Header';
+import ProjetoItem from '../../components/ProjetoItem';
+import { getPrismicClient } from '../../services/prismic';
+import { ProjetosContainer } from '../../styles/ProjetosStyles';
 
 interface IProjeto {
   slug: string;
@@ -24,22 +15,18 @@ interface IProjeto {
   thumbnail: string;
 }
 
-interface HomeProps {
+interface ProjetoProps {
   projetos: IProjeto[];
 }
 
-export default function Home({ projetos }: HomeProps) {
-  useEffect(() => {
-    Aos.init({ duration: 1500 });
-  }, []);
-
+export default function Projetos({ projetos }: ProjetoProps) {
   return (
-    <HomeContainer>
+    <ProjetosContainer>
       <Head>
-        <title>Home | Meu portfólio</title>
+        <title>Projetos | Meu portfólio</title>
         <meta
           name="description"
-          content="Sou um desenvolvedor Front-end e aqui apresento alguns projetos desenvolvidos por mim!"
+          content="Sou um desenvolvedor e aqui apresento alguns projetos desenvolvidos por mim!"
         />
         <meta property="og:image" content="/ogimage.png" />
         <meta property="og:image:secure_url" content="/ogimage.png" />
@@ -52,17 +39,18 @@ export default function Home({ projetos }: HomeProps) {
       </Head>
 
       <Header />
-
       <main className="container">
-        <HomeHero />
-        <Experiencias />
-        <Projetos projetos={projetos} />
-        <Conhecimentos />
-        <FormContato />
+        {projetos.map(projeto => (
+          <ProjetoItem
+            key={projeto.slug}
+            title={projeto.title}
+            type={projeto.type}
+            slug={projeto.slug}
+            imgUrl={projeto.thumbnail}
+          />
+        ))}
       </main>
-
-      <Footer />
-    </HomeContainer>
+    </ProjetosContainer>
   );
 }
 
