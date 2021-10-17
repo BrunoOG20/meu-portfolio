@@ -14,18 +14,18 @@ function Experiencias() {
         />
         <ExperienciaItem
           year="None"
-          title="Desenvolvedor web"
-          description="Desenvolvendo com Java e Javascript"
+          title="None"
+          description="None"
         />
         <ExperienciaItem
           year="None"
-          title="Desenvolvedor web"
-          description="Desenvolvendo com Java e Javascript"
+          title="None"
+          description="None"
         />
         <ExperienciaItem
           year="None"
-          title="Desenvolvedor web"
-          description="Desenvolvendo com Java e Javascript"
+          title="None"
+          description="None"
         />
       </section>
     </Container>
