@@ -23,6 +23,7 @@ function Footer() {
         <button type="button" onClick={handleScrollTop}>
           Voltar ao topo
         </button>
+        
         <section>
           <AiOutlineTwitter
             onClick={() => handleRedirect('https://twitter.com/brunogava')}
