@@ -23,7 +23,7 @@ const transporter = nodemailer.createTransport({
     clientId,
     clientSecret,
     refreshToken,
-    accessToken
+    //accessToken
   }
 });
 
