@@ -6,11 +6,7 @@ interface ExperienciaProps {
   description: string;
 }
 
-export default function ExperienciaItem({
-  year,
-  title,
-  description
-}: ExperienciaProps) {
+export default function ExperienciaItem({year, title, description }: ExperienciaProps) {
   return (
     <ItemContainer data-aos="fade-up">
       <div>
